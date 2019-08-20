@@ -243,6 +243,15 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         $this->app['view']->addExtension('pug' . $subExtension . '.php', 'pug' . $subExtension);
         $this->app['view']->addExtension('jade' . $subExtension, 'pug' . $subExtension);
         $this->app['view']->addExtension('jade' . $subExtension . '.php', 'pug' . $subExtension);
+
+	if ($subExtension)
+	{
+	    $subExtension2 = substr($subExtension,1) . '.';
+    	    $this->app['view']->addExtension($subExtension2.'pug'  , 'pug' . $subExtension);
+    	    $this->app['view']->addExtension($subExtension2.'pug.php', 'pug' . $subExtension);
+    	    $this->app['view']->addExtension($subExtension2.'jade' , 'pug' . $subExtension);
+    	    $this->app['view']->addExtension($subExtension2.'jade.php', 'pug' . $subExtension);
+	}
     }
 
     /**
